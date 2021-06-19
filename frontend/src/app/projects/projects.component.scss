@@ -4,6 +4,7 @@
 
 .column {
     margin: 5%;
+    margin-top: 2%;
     flex: 40%;
 }
 
@@ -18,7 +19,6 @@
 .proj-title {
     position: relative;
     padding-top: 20px;
-    padding-bottom: 10px;
 }
 
 .alignleft {
@@ -32,7 +32,7 @@
 }
 
 .link {
-    font-weight: bold;
+    font-weight: bold;    
     border-radius: 5px;
     margin-left: 15px;
     padding: 2px 10px;
@@ -43,37 +43,49 @@
     }
 }
 
-.link,.tag {
+.link,.tag {    
     border: none;
-    background: white;
-    background: linear-gradient(
-        to right bottom,
-        rgba(255, 255, 255, 0.7),
-        rgba(255, 255, 255, 0.3)
-        );
-    }
+    background: rgb(209, 208, 208);
+    // background: linear-gradient(
+    //     to right bottom,
+    //     rgba(113, 242, 252, 0.7),
+    //     rgba(255, 255, 255, 0.3)
+    //     );
+}
     
 .tag {
-    margin-right: 15px;
+    margin-right: 10px;
     color: inherit;
+    margin-bottom: 10px;
 }
+
+/*** Wide screens ***/
+@media (min-width: 1400px) {
+    .column {
+        flex: 30%;
+    }
+}
+
 /*** Tablets ***/
-// @media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: 838px) and (max-width: 991px) {
     
-//     .column {
-//         margin: 2%;
-//         margin-top: 5%;
-//         flex: 40%;
-//     }
-// }
+    .column {
+        margin: 2%;
+        flex: 40%;
+    }
+}
 
 /*** Mobile ***/
-@media (max-width: 767px) {
+@media (max-width: 837px) {
     .row {
         display: block;
     }
 
     .image {
         border-radius: 0px;
+    }
+    /*** XS Mobile ***/
+    @media (max-width: 425px) {
+
     }
 }
