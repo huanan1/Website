@@ -8,15 +8,22 @@ on:
 jobs:
   build:
     runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: ./frontend
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          architecture: 'x64' # optional, x64 or x86. If not specified, x64 will be used by default
       - uses: actions/cache@v2
         with:
           path: '**/node_modules'
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          node-version: '14'
-          architecture: 'x64' # optional, x64 or x86. If not specified, x64 will be used by default
-      - run: npm install -g @angular/cli
-      - run: npm install
-      - run: ng build --base-href="/Website/"
+      - name: Build and deploy
+        run: |
+          npm install -g @angular/cli
+          npm install
+          ng build --base-href="/Website/"
+  
