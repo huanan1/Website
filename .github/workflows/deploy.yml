@@ -26,4 +26,8 @@ jobs:
           npm install -g @angular/cli
           npm install
           ng build --base-href="/Website/"
-  
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: dist/frontend # The folder the action should deploy.
