@@ -12,7 +12,7 @@ jobs:
       run:
         working-directory: ./frontend
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2 # checks out a repo
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
@@ -26,8 +26,13 @@ jobs:
           npm install -g @angular/cli
           npm install
           ng build --base-href="/Website/"
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages # The branch the action should deploy to.
-          folder: ./dist/frontend # The folder the action should deploy.
+          folder: dist/frontend # The folder the action should deploy.
