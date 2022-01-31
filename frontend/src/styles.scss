@@ -1,16 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/theming';
-
-@import 'theme.scss';
-
-@include angular-material-theme($dark-theme);
+@import 'themes.scss';
 
 body {
     // background: linear-gradient(to right top, #b4e4d6, #94cdd3) fixed;
-    background: whitesmoke;
-    color: #10253a;
-//     background: #1F153D;
-//     color: whitesmoke;
+    // background: whitesmoke;
+    // color: #10253a;
+    background: $background;
+    color: $textColor;
 }
 
 #navbar {

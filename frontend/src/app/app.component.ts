@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'Huan An Cheng';
   router: string;
-
+  
   constructor(private _router: Router){
     this.router = _router.url;
   }
